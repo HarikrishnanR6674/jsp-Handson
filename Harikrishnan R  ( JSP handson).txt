@@ -1,0 +1,918 @@
+﻿1)
+**********syntax.jsp**********
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html >
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="http://localhost:8080/J2EEproject/result.jsp">
+name:<input type="text" name="name"><br/>
+ <input type="submit" value="submit">
+</form>
+
+</body>
+</html>
+
+
+
+**********result.jsp*******************
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%=request.getParameter("name") %>
+</body>
+</html>
+
+
+2)
+************syntax.jsp**********
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html >
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="http://localhost:8080/J2EEproject/result.jsp">
+name:<input type="text" name="name"><br/>
+ <input type="submit" value="submit">
+</form>
+
+</body>
+</html>
+
+
+********result.jsp***************
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<% String s=request.getParameter("name"); %>
+<%= s %>
+</body>
+</html>
+
+
+
+
+3)
+
+***********sytax.jsp************
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%! int j=0; %>
+for:<%=  ++j  %>time
+</body>
+</html>
+
+
+
+
+4)
+
+*********PerformTask Class*************
+
+package com.pack;
+
+public class PerformTask {
+	
+	public String doTask() {
+		return "hello world";
+	}
+
+}
+
+
+************result.jsp****************
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" import="com.pack.PerformTask" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head> 
+<body>
+<% PerformTask p=new PerformTask();
+out.println(p.doTask());
+
+%>
+</body>
+</html>
+
+
+
+5)
+
+**********page.jsp***********
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head> 
+<body>
+<% session.setAttribute("age", 22);%>
+<%=session.getAttribute("age") %>
+</body>
+</html>
+
+
+
+
+
+
+6)
+
+
+***********page.jsp************
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" errorPage="error.jsp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%! int i=10; %>
+<% int j=i/0; %>
+</body>
+</html>
+
+
+***********error.jsp************
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" isErrorPage="true"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%=exception %>
+<%= exception.getMessage()  %>
+</body>
+</html>
+
+
+
+
+
+7)
+***********sytax.jsp************
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html >
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="http://localhost:8080/J2EEproject/result.jsp">
+name:<input type="text" name="name"><br/>
+age:<input type="text" name="age"><br/>
+ <input type="submit" value="submit">
+</form>
+
+</body>
+</html>
+
+
+***********result.jsp***********
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" errorPage="error.jsp"  %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head> 
+<body>
+<%= request.getParameter("name") %>
+<%String s=request.getParameter("age"); 
+int j=s.length();
+int i =Integer.parseInt(s);
+if(j==2 ){
+if(i>=10 || i<20){
+	
+	if(i==10)
+		out.print("ten");
+	if(i==11)
+		out.print("eleven");
+	if(i==12)
+		out.print("twelve");
+	if(i==13)
+		out.print("thirteen");
+	if(i==14)
+		out.print("fourteen");
+	if(i==15)
+		out.print("fifteen");
+	if(i==16)
+		out.print("sixteen");
+	if(i==17)
+		out.print("seventeen");
+	if(i==18)
+		out.print("eighteeen");
+	if(i==19)
+		out.print("nineteen");
+
+
+}
+if(i>=20){
+
+switch(i/10){
+	
+case 2:{
+	out.print("twenty ");
+	break;
+}
+
+case 3:{
+	out.print("thity ");
+	break;
+}
+
+case 4:{
+	out.print("fourty ");
+	break;
+}
+
+case 5:{
+	out.print("fifty ");
+	break;
+}
+
+case 6:{
+	out.print("sixty ");
+	break;
+}
+
+case 7:{
+	out.print("seventy ");
+	break;
+}
+
+case 8:{
+	out.print("eighty ");
+	break;
+}
+
+case 9:{
+	out.print("ninety ");
+	break;
+}}
+j--;
+
+}}
+
+
+if(j==1){
+switch(i%10){
+	
+	case 1:{
+		out.print("one");
+		break;
+	}
+
+	case 2:{
+		out.print("two");
+		break;
+	}
+
+	case 3:{
+		out.print("three");
+		break;
+	}
+
+	case 4:{
+		out.print("four");
+		break;
+	}
+
+	case 5:{
+		out.print("five");
+		break;
+	}
+
+	case 6:{
+		out.print("six");
+		break;
+	}
+
+	case 7:{
+		out.print("seven");
+		break;
+	}
+
+	case 8:{
+		out.print("eight");
+		break;
+	}
+
+	case 9:{
+		out.print("nine");
+		break;
+	}}
+}		
+
+%>
+</body>
+</html>
+
+
+
+
+
+8)
+
+***********Static HTML to display company name and logo*************************
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<img align="right" src="C:\Users\harikrishnanr\Desktop\javatraining\download.jfif" width="150" height="50" border="1" >
+<h1 align="center"  >GetcarS</h1>
+</body>
+</html>
+
+
+************Fisrt.jsp with company name and logo*******************
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Car company</title>
+</head>
+<body>
+<%@ include file="car1.html" %>
+<form action="http://localhost:8080/J2EEproject/next1.jsp">
+Enter Name:<input type="text" name="name"><br/>
+ <input type="submit" value="submit">
+</form>
+</body>
+</html> 
+
+
+**********Second.jsp with company and logo******************
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%@ include file="car1.html" %>
+<form action="http://localhost:8080/J2EEproject/next2.jsp">
+Choose Car: <input type="radio" name="car" value="audi">Audi
+        <input type="radio" name="car" value="volvo">Volvo
+         <input type="radio" name="car" value="swift">Swift
+   <br/>
+ <input type="submit" value="submit">
+ </form>
+</body>
+</html>
+
+
+
+*************Third.jsp with company name and logo**********************
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%@ include file="car1.html" %>
+Customer name is <%=request.getParameter("name") %>
+ selected car type is<%=request.getParameter("car") %>.
+</body>
+</html>
+
+
+
+
+9)
+
+***********wonder.jsp*************
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<img align="middle" src="C:\Users\harikrishnanr\Desktop\javatraining\download.jfif" width="150" height="150" border="1" >
+<%!int j=0; %>
+<%  ++j;  %>
+<%session.setAttribute("hit", j); 
+%>
+
+To get number of time visited:
+<a href="/J2EEproject/wonder1.jsp">Click here</a>
+</body>
+</html>
+
+
+
+************to Get number of time visted -->print.jsp******************
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+page visited for <%=session.getAttribute("hit") %> times
+
+</body>
+</html>
+
+
+
+10)
+
+***********index.jsp*****************
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="http://localhost:8080/J2EEproject/wonder1.jsp" >
+
+Name: <input type="text" name="n1"><br/>
+
+ <input type="submit" value="submit">
+</form>
+</body>
+</html>
+
+
+
+
+
+************print.jsp*****************
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+UserName is <%=request.getParameter("n1") %> 
+
+</body>
+</html>
+
+
+
+
+11)
+
+***************sql database******************
+
+mysql> create database test;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use test;
+Database changed
+
+mysql> create table user(name varchar(50),age int);
+Query OK, 0 rows affected (0.05 sec) 
+mysql> insert into user values('zara',3);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into user values('ram',23);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into user values('sam',27);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into user values('ravi',17);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into user values('raju',30);
+Query OK, 1 row affected (0.01 sec)
+1
+mysql> select *  from user;
++------+------+
+| name | age  |
++------+------+
+| zara |    3 |
+| ram  |   23 |
+| sam  |   27 |
+| ravi |   17 |
+| raju |   30 |
++------+------+
+5 rows in set (0.00 sec)
+
+mysql> select *  from user;
+
+
+
+************index.jsp*************
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="http://localhost:8080/J2EEproject/wonder1.jsp" >
+
+Name: <input type="text" name="n1"><br/>
+
+ <input type="submit" value="submit">
+</form>
+</body>
+</html>
+
+
+***********display.jsp****************
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@page import="java.sql.*" %>
+    <% String uname=request.getParameter("n1"); 
+ 
+ try{
+	 Class.forName("com.mysql.cj.jdbc.Driver");
+ }
+ catch(ClassNotFoundException e){
+	out.println(e); 
+	
+ }
+ Connection connection=null;
+ Statement statement=null;
+ ResultSet result=null;
+
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+
+try{
+	connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc/test","root","root");
+	statement=connection.createStatement();
+	
+	String sql="select * from user where name=uname";
+	result=statement.executeQuery(sql);
+	if(!result.next()){
+	out.println("no user avail");
+		
+	}
+	else{
+		out.println(result.getString("name"));
+		out.println(result.getInt("age"));
+	}
+	connection.close();
+	
+}
+catch(Exception e){
+	out.println(e);
+}
+
+%>
+
+</body>
+</html>
+
+
+
+
+12)
+
+*******************web.xml****************
+
+  <servlet>
+  <servlet-name>hello</servlet-name>
+  <jsp-file>/Config.jsp</jsp-file>
+  <init-param>
+  <param-name>email</param-name>
+  <param-value>abc@gmail.com</param-value>
+  </init-param>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>hello</servlet-name>
+  <url-pattern>/Config.jsp</url-pattern>
+  </servlet-mapping>
+
+
+
+***************config.jsp***************
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html >
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%=application.getInitParameter("email") %><br/>
+</body>
+</html>
+
+
+
+13)
+
+*************web.xml***********
+
+<servlet>
+  <servlet-name>hello</servlet-name>
+  <jsp-file>/Config.jsp</jsp-file>
+   <init-param>
+  <param-name>department</param-name>
+  <param-value>Software</param-value>
+  </init-param>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>hello</servlet-name>
+  <url-pattern>/Config.jsp</url-pattern>
+  </servlet-mapping>
+
+
+**************context.jsp*****************
+
+
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%=config.getInitParameter("department") %><br/>
+<a href="/J2EEproject/Config.jsp">Click here</a>
+</body>
+</html>
+
+
+***************config.jsp***************
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html >
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<% String st=config.getInitParameter("department");
+out.println(st); %><br/>
+</body>
+</html>
+
+
+14)
+
+
+**************index.jsp****************
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" errorPage="error.jsp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%! int i=10; %>
+<% int j=i/0; %>
+</body>
+</html>
+
+
+
+*************error.jsp*****************
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" isErrorPage="true"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%=exception %>
+<%= exception.getMessage()  %>
+</body>
+</html>
+
+
+
+
+
+15)
+
+*************index.jsp******************
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<form action="http://localhost:8080/J2EEproject/SServlet" >
+Name: <input type="text" name="name"><br/>
+<br/>
+ <input type="submit" value="submit">
+</form>
+</body>
+</html>
+
+
+
+*************SServlet********************
+
+
+
+
+
+
+
+
+
+
+
+package com.handson;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class SServlet
+ */
+@WebServlet("/SServlet")
+public class SServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public SServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html"); 
+        PrintWriter pw=response.getWriter();
+        response.sendRedirect("/J2EEproject/print.jsp");
+        
+        pw.close();
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			}
+
+}
+
+
+****************print.jsp******************
+
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+User Name is <%=request.getParameter("name") %>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
